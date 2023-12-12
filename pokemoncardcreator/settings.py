@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pcc.apps.PccConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
