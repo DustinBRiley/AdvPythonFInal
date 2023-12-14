@@ -8,13 +8,13 @@
   </head>
   <body>
     <h1>Welcome to Pokemon Card Creator</h1>
-    <a href="./login.html">Login</a>
+    <a href="./">Home</a>
     <a href="./register.html">Register</a>
     <br>
     <form method="post">
         {% csrf_token %}
         <div class="mb-3">
-          <label for="username" class="form-label">Pokemon</label>
+          <label for="username" class="form-label">Username</label>
           <input name ="username" type="text" class="form-control" id="username" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">

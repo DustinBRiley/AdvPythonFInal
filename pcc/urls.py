@@ -1,7 +1,9 @@
 from django.urls import path
 
 from . import views
-from .views import register, login, logout
+from .views import register, login, logout, create
+from django.conf.urls.static import static
+from django.conf import settings
 
 app_name = "pcc"
 urlpatterns = [
@@ -9,7 +11,9 @@ urlpatterns = [
     path("login.html", login, name="login"),
     path("logout.html", logout, name="logout"),
     path("register.html", register, name="register"),
-    path("create.html", views.CreateView.as_view(), name="create"),
+    path("create.html", create, name="create"),
     path("collection.html", views.CollectionView.as_view(), name="collection"),
     path("<int:pokemon_id>", views.DetailView.as_view(), name="detail")
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
