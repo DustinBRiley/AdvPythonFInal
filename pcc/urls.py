@@ -12,8 +12,7 @@ urlpatterns = [
     path("logout.html", logout, name="logout"),
     path("register.html", register, name="register"),
     path("create.html", create, name="create"),
-    path("collection.html", views.CollectionView.as_view(), name="collection"),
-    path("<int:pokemon_id>", views.DetailView.as_view(), name="detail")
+    path("collection.html", views.CollectionView.as_view(), name="collection")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

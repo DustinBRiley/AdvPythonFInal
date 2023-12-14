@@ -1,5 +1,7 @@
+from typing import Any
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.views import generic
@@ -62,8 +64,8 @@ def create(request):
             card = Image.open('pcc/images/' + a.type + '.png')
             newcard = card.copy()
             img = Image.open(a.image)
-            img = img.resize((363,256))
-            newcard.paste(img, (55,83))
+            img = img.resize((366,257))
+            newcard.paste(img, (54,83))
             draw_name = ImageDraw.Draw(newcard)
             draw_name.text((45,42), a.name, font=ImageFont.truetype('arial.ttf', 32), fill=(0,0,0))
             draw_move = ImageDraw.Draw(newcard)
@@ -85,8 +87,4 @@ class CollectionView(generic.ListView):
 
     def get_queryset(self):
         return PokemonCard.objects.filter(creator=self.request.user)
-
-class DetailView(generic.DetailView):
-    template_name = "pcc/detail.html"
-    context_object_name = ""
 
